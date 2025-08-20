@@ -92,7 +92,7 @@ spec:
             fieldRef:
               fieldPath: metadata.labels['tags.datadoghq.com/service']
         - name: DD_LOGS_INJECTION
-          value: true
+          value: "true"
         resources:
           {{- toYaml .Values.cartService.resources | nindent 10 }}
         readinessProbe:
