@@ -35,6 +35,7 @@ metadata:
   labels:
     app: {{ .Values.productCatalogService.name }}
     tags.datadoghq.com/service: {{ .Values.productCatalogService.name }}
+    dd_service: {{ .Values.productCatalogService.name }}
 spec:
   selector:
     matchLabels:
@@ -44,6 +45,7 @@ spec:
       labels:
         app: {{ .Values.productCatalogService.name }}
         tags.datadoghq.com/service: {{ .Values.productCatalogService.name }}
+        dd_service: {{ .Values.productCatalogService.name }}
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.productCatalogService.name }}

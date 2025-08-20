@@ -33,6 +33,7 @@ metadata:
   labels:
     app: {{ .Values.cartService.name }}
     tags.datadoghq.com/service: {{ .Values.cartService.name }}
+    dd_service: {{ .Values.cartService.name }}
 spec:
   selector:
     matchLabels:

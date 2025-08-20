@@ -35,6 +35,7 @@ metadata:
   labels:
     app: {{ .Values.checkoutService.name }}
     tags.datadoghq.com/service: {{ .Values.checkoutService.name }}
+    dd_service: {{ .Values.checkoutService.name }}
 spec:
   selector:
     matchLabels:
