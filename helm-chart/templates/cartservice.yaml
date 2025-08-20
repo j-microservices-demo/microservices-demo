@@ -49,6 +49,7 @@ spec:
       labels:
         app: {{ .Values.cartService.name }}
         tags.datadoghq.com/service: {{ .Values.cartService.name }}
+        admission.datadoghq.com/enabled: "true"
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.cartService.name }}
@@ -90,6 +91,8 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.labels['tags.datadoghq.com/service']
+        - name: DD_LOGS_INJECTION
+          value: true
         resources:
           {{- toYaml .Values.cartService.resources | nindent 10 }}
         readinessProbe:
